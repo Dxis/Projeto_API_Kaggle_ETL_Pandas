@@ -2,7 +2,7 @@
 
 Este é um projeto que demonstra um processo de ETL (Extração, Transformação e Carga) de dados usando a linguagem de programação Python, a biblioteca Pandas e bancos de dados relacionais como MySQL ou PostgreSQL.
 
-![Arquitetura](Read.png)
+![Arquitetura](./Read.PNG)
 
 ## Objetivo
 
