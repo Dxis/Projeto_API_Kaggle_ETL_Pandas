@@ -12,7 +12,7 @@ O objetivo deste projeto é extrair dados de conjuntos de dados disponíveis no 
 
 - Python
 - Pandas
-- Kaggle API
+- Kaggle API (https://github.com/Kaggle/kaggle-api)
 - SQLAlchemy
 - MySQL ou PostgreSQL
 
