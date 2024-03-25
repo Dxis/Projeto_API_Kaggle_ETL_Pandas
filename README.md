@@ -1,7 +1,5 @@
 # Projeto ETL - Extração de API, Transformação com Pandas e Carga(MySql e PostgreSQL) 
 
-Este é um projeto que demonstra um processo de ETL (Extração, Transformação e Carga) de dados usando a linguagem de programação Python, a biblioteca Pandas e bancos de dados relacionais como MySQL ou PostgreSQL.
-
 ![Arquitetura](./Read.PNG)
 
 ## Objetivo
