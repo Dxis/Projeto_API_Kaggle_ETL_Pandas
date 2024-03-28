@@ -1,6 +1,6 @@
 import psycopg2
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv #
 import time
 import uuid
 
@@ -53,7 +53,7 @@ def call_stored_procedure(Objeto_name, uuid_param, ID_Tipo):
         print("Erro ao executar o procedimento armazenado:", e)
 
     finally:
-        # Feche o cursor e a conexão
+        # Feche o cursor e a conexão@
         if cur:
             cur.close()
         if conn:

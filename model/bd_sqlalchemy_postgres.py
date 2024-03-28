@@ -42,7 +42,7 @@ def Db_Postgres_Sel_log():
             # Execute a consulta SQL
         #result = conn.execution_options(stream_results=True).execute(text("select * from public.tblstage_spotify;"))
         #result = conn.execution_options(stream_results=True).execute(text('select * from "db_DxCorp_Servicos".tblSpotify;'))
-        #result = conn.execution_options(stream_results=True).execute((sql_query))
+        result = conn.execution_options(stream_results=True).execute((sql_query))
         # Execute a consulta SQL
         #result = conn.execute(sql_query, {'_ID_Guid': _ID_Guid})
 
