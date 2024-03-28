@@ -4,7 +4,9 @@ from dotenv import load_dotenv
 import os
 from kaggle.api.kaggle_api_extended import KaggleApi
 from sqlalchemy import create_engine
+import uuid
 
+guid = uuid.uuid4()
 
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
@@ -19,6 +21,12 @@ def baixar_Arq_Kaggle(DataSet_Kaggle):
 def ETL_Pandas(caminho_arquivo):
     # Carregar o arquivo CSV usando o Pandas
     df = pd.read_csv(caminho_arquivo, delimiter=',')
+
+    # Recriar a tabela com a coluna adicional dtCorte
+    df['dtCorte'] = pd.to_datetime('today').date()
+
+   # Criar uma coluna de GUID
+   #df['id_guid'] = [pd.uuid4() for _ in range(len(df))]
 
     # Definir a consulta SQL que você deseja executar
     consulta_sql = """
@@ -40,10 +48,13 @@ def ETL_Pandas(caminho_arquivo):
     # Criar uma conexão SQLAlchemy
     if var == 1:
         print("CONN_POSTGRESQL:", CONN_POSTGRESQL)      
-        ConectarBanco(CONN_POSTGRESQL, df, df_top5)         
+        ConectarBanco(CONN_POSTGRESQL, df, df_top5) 
+
     if var == 2:
         print("CONN_MYSQL:", CONN_MYSQL)
         ConectarBanco(CONN_MYSQL, df, df_top5)
+
+        
        
 
 # Conectar ao banco de dados e inserir dados
@@ -53,7 +64,7 @@ def ConectarBanco(CONN_STRING, df, df_top5):
     
     engine = create_engine(CONN_STRING)    
 
-    tblspotify_topsongs = 'tblspotify_topsongs'
+    tblspotify_topsongs = 'tblstage_spotify'
     df.to_sql(tblspotify_topsongs, engine, if_exists='replace', index=False)
 
     tblTop5_Spotify = 'tbltop5_spotify'
